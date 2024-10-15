@@ -1,0 +1,147 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com), 2020-2022 moderncv maintainers (github.com/moderncv).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[12pt,a4paper,russian]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 
+\moderncvcolor{burgundy}                               % color options 
+\usepackage[russian]{babel}  % FIXME: using spanish breaks moderncv
+\usepackage{translator}
+
+% Переопределение имен месяцев в именительном падеже
+\newcommand{\monthnameru}[1]{%
+  \ifnum#1=1 январь\fi%
+  \ifnum#1=2 февраль\fi%
+  \ifnum#1=3 март\fi%
+  \ifnum#1=4 апрель\fi%
+  \ifnum#1=5 май\fi%
+  \ifnum#1=6 июнь\fi%
+  \ifnum#1=7 июль\fi%
+  \ifnum#1=8 август\fi%
+  \ifnum#1=9 сентябрь\fi%
+  \ifnum#1=10 октябрь\fi%
+  \ifnum#1=11 ноябрь\fi%
+  \ifnum#1=12 декабрь\fi}
+
+% https://tex.stackexchange.com/questions/310612/moderncv-date-year-on-top-month
+\usepackage{datetime}
+\def\dates[#1.#2-#3.#4]{\yearabove{\monthnameru{#1}}{#2}--\yearabove{\monthnameru{#3}}{#4}}
+\newcommand{\yearabove}[2]{\parbox[t]{10mm}{\centering{#2\par\vspace{-2mm} \tiny{#1}}}}
+
+\setlength{\hintscolumnwidth}{3cm} % change the width of the column with the dates
+
+% \newfontfamily\bodyfont{Fira Sans}
+% \newfontfamily\thinfont[]{Fira Sans Light}
+% \newfontfamily\headingfont[]{Fira Sans Bold}
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+\setlength{\footskip}{136.00005pt}                 % depending on the amount 
+
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \setmainfont{Roboto}
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX}
+  % \setmainfont{Latin Modern Roman}
+  % \setsansfont{Latin Modern Sans}
+  % \setmonofont{Latin Modern Mono}
+  % \setmathfont{Latin Modern Math} 
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\fi
+
+% document language
+% \usepackage[english]{babel}  % FIXME: using spanish breaks moderncv
+
+
+% personal data
+\name{Андрей}{Попиков}
+\title{Software Engineer}
+\address{Воронеж, Россия}
+\phone[mobile]{+7~960~103~2074}
+\email{agpopikov@gmail.com}
+\social[linkedin]{agpopikov}
+\homepage{agpopikov.info}
+\social[telegram]{agpopikov}
+
+\photo[80pt][0.4pt]{me.min}
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in 
+\makecvtitle
+\cvitem{}{Я разработчик с 10+ годами опыта. Моей основной специализацией является разработка ПО на Java и Kotlin (активно использую Kotlin для backend-разработки начиная с версии 1.2). У меня есть большой опыт работы с такими фреймворками и библиотеками как Spring, Hibernate, jOOQ, testcontainers и многими другими. Помимо этого у меня есть опыт формирования и управления командами разработки ПО.}{}
+\section{Навыки}
+\cvitem{}{Kotlin, Java, Spring Framework (Boot, Security, Cloud), jOOQ, Flyway, PostgreSQL, Apache Cassandra, Clickhouse, Kafka, testcontainers, API design (Swagger / OpenAPI standards), Angular, TypeScript, архитектура ПО, анализ производительности ПО (async-profiler, YourKit), cloud technologies (в основном AWS) включая гибридные решения, формирование и управление командами разработки, гибкие методологии разработки ПО (Kanban, XP, Agile). }
+
+\section{Опыт}
+
+\cventry{\dates[01.2020-08.2024]}{Lead Software Engineer / co-founder}{Madtest}{}{}{%
+  \begin{itemize}
+    \item Принял участие в создании Madtest на ранней стадии, отвечал за backend-разработку и инфраструктуру.
+    \item Разработал архитектуру и большую часть существующего решения, включая авторизацию, платежи, рассылки и др. Используем Kotlin в качестве основного языка для backend-разработки вместе со Spring, PostgreSQL, Kafka, Clickhouse.
+  \end{itemize}
+}
+\cventry{\dates[12.2021-08.2023]}{Lead Software Engineer}{Технолаб (contractor / part-time)}{}{}{%
+    \begin{itemize}
+    \item Подключился в качестве ведущего инженера для решения проблем с производительностью и улучшения архитектуры одной из крупнейших платформ по продаже билетов в регионе.
+    \item Руководил созданием и интеграцией новой команды разработчиков с целью повышения масштабируемости и надежности платформы.
+    \item Работал над существующими сервисами, написанными на Java (с использованием Spring, Hibernate), тесно взаимодействовал с DevOps-командой для улучшения поддерживаемости всего решения.
+  \end{itemize}
+}
+\cventry{\dates[08.2020-10.2021]}{Sr. Java Developer}{Айконсофт}{}{}{%
+  \begin{itemize}
+    \item Работал над разработкой новых и поддержка существующих веб-сервисов на Java (Spring Boot / JHipster).
+    \item Занимался внедрением и интеграцией Camunda BPMN как платформы для управления и настройки бизнес-процессов.
+  \end{itemize}
+}
+\cventry{\dates[02.2015-12.2019]}{Lead Software Engineer}{Лига Цифровой Экономики}{Воронеж}{}{%
+  \begin{itemize}
+    \item Разработка веб-сервисов (в том числе высоконагруженных) с использованием Java, Kotlin, Spring, PostgreSQL, Redis, Kafka и UI-интерфейсов на Angular (TypeScript).
+    \item Управлял командой разработки (около 10 разработчиков).
+    \item Работал над внедрением и совершенствованием процессов CI/CD, внедрил и стандартизовал практики code review в нескольких командах.
+    \item Учавствовал в разработке прототипов с использованием различных технологий (IoT-проекты, мобильные приложения на Flutter и др.) в рамках pre-sale активностей.
+    \item Активно участвовал в HR-процессах:
+      \begin{itemize}
+        \item Принимал участие в технических интервью, работал над материалами и методикой для проведения интервью.
+        \item Организовал и провел несколько курсов по основам Java-разработки и Spring для студентов.
+      \end{itemize}
+  \end{itemize}
+}
+\cventry{\dates[02.2014-01.2015]}{Java-разработчик}{Вистар}{Воронеж}{}{%
+  \begin{itemize}
+    \item Разработка веб-сервисов на Java (Spring, Hibernate / MyBatis) для отслеживания общественного транспорта в реальном времени.
+    \item Разработка прототипов мобильных приложений с использованием Apache Cordova (Angular.js / jQuery).
+  \end{itemize}
+}
+
+\section{Языки}
+\cvitemwithcomment{Русский}{родной}{}
+\cvitemwithcomment{Английский}{свободный (B2/C1)}{}
+\cvitemwithcomment{Немецкий}{начинающий (A2)}{}
+
+\section{Образование}
+\cvitem{2012--2016}{
+  \textbf{Воронежский Государственный Университет}; \newline
+  Изучал компьютерные науки @ Факультет компьютерных наук; \newline
+  Кафедра Программирования и Информационных Технологий (ПиИТ);
+}
+
+\section{Хобби и интересы}
+\cvitem{}{Разработка IoT-решений (в основном на основе чипов STM32/ESP32). Есть небольшой опыт использования DSP/FPGA (семейство AMD / Xilinx Zynq) и проектирования простых плат.}
+\cvitem{}{}
+
+\clearpage
+\end{document}
+

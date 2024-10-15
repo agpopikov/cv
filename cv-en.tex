@@ -1,0 +1,125 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com), 2020-2022 moderncv maintainers (github.com/moderncv).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[12pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 
+\moderncvcolor{burgundy}                               % color options 
+
+% https://tex.stackexchange.com/questions/310612/moderncv-date-year-on-top-month
+\usepackage{datetime}
+\def\dates[#1.#2-#3.#4]{\yearabove{\monthname[#1]}{#2}--\yearabove{\monthname[#3]}{#4}}
+\newcommand{\yearabove}[2]{\parbox[t]{10mm}{\centering{#2\par\vspace{-2mm} \tiny{#1}}}}
+
+\setlength{\hintscolumnwidth}{3cm} % change the width of the column with the dates
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+\setlength{\footskip}{136.00005pt}                 % depending on the amount 
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{Latin Modern Roman}
+  \setsansfont{Latin Modern Sans}
+  \setmonofont{Latin Modern Mono}
+  \setmathfont{Latin Modern Math} 
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\fi
+
+% document language
+\usepackage[english]{babel}  % FIXME: using spanish breaks moderncv
+
+% personal data
+\name{Andrei}{Popikov}
+\title{Software Engineer}
+\address{Voronezh, Russia}
+% \phone[mobile]{+7~960~103~2074}
+\email{agpopikov@gmail.com}
+\social[linkedin]{agpopikov}
+\homepage{agpopikov.info}
+\social[telegram]{agpopikov}
+
+\photo[80pt][0.4pt]{me.min}
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in 
+\makecvtitle
+\cvitem{}{I am a software engineer with 10+ years of experience specializing in Java and Kotlin development (actively using Kotlin since 1.2). I have extensive experience working with frameworks \& libraries such as Spring, Hibernate, jOOQ, testcontainers and many others. Additionally, I have good leadership \& communication skills and I'm always trying to understand business needs.  }{}
+\section{Main skills}
+\cvitem{}{Kotlin, Java, Spring Framework (Boot, Security, Cloud), jOOQ, Flyway, PostgreSQL, Apache Cassandra, Clickhouse, Kafka, testcontainers, API design (Swagger / OpenAPI standards), Angular, TypeScript, sofware architecture, application performance analysis (async-profiler, YourKit), cloud technologies (mostly AWS) including hybrid solutions, building \& leading software engineering teams, agile methodologies. }
+
+\section{Experience}
+
+\cventry{\yearabove{January}{2020} – present}{Lead Software Engineer}{Madtest}{}{}{%
+  \begin{itemize}
+    \item Joined Madtest at an early stage, responsible for backend development and infrastructure.
+    \item Developed many parts of existing solution including core logic, auth, payments, etc; using Kotlin as the main language alongside Spring Framework, with PostgreSQL and Clickhouse for data storage.
+    \item Implemented a hybrid cloud infrastructure that leverages AWS and on-premise servers, significantly reducing operational costs while ensuring high availability.
+  \end{itemize}
+}
+\cventry{\dates[12.2021-08.2023]}{Lead Software Engineer}{Technolab (part-time)}{}{}{%
+  \begin{itemize}
+    \item Joined as a lead engineer to assist in performance optimizations and architectural improvements for one of the largest ticket-selling platforms in a region.
+    \item Led efforts in building and onboarding a new development team to enhance the platform's scalability and reliability.
+    \item Worked on existing services written in Java (with Spring, Hibernate), worked closely with DevOps team to improve overall maintainability.
+  \end{itemize}
+}
+\cventry{\dates[08.2020-10.2021]}{Sr. Java Developer}{Iconsoft}{}{}{%
+  \begin{itemize}
+    \item Developed new and maintained existing services written in Java (JHipster-based projects).
+    \item Assisted in the adoption and integration of the Camunda BPMN platform to make process management more flexible \& observable.
+  \end{itemize}
+}
+\cventry{\dates[02.2015-12.2019]}{Lead Software Engineer}{Inleksys}{Voronezh}{}{%
+  \begin{itemize}
+    \item Built \& lead development team (around 10 devs).
+    \item Worked on development of web applications using technologies such 
+            as Java, Kotlin, Spring, PostgreSQL, Redis, Kafka, TypeScript, Angular.
+    \item Improved CI/CD processes, introduced \& standardized peer-code reviews practice among different teams.
+    \item Participated in development of prototypes and proof-of-concept solutions for different customers (IoT projects, mobile applications based on the Flutter platform).
+    \item Actively participated in the company’s HR processes:
+      \begin{itemize}
+        \item Participated in technical interviews, worked on improving hiring processes.
+        \item Organized and led several courses on the basics of Java and web development for students.
+      \end{itemize}
+  \end{itemize}
+}
+\cventry{\dates[02.2014-01.2015]}{Software Engineer}{Vistar}{Voronezh}{}{%
+  \begin{itemize}
+    \item Developed web services using Java, Spring, MyBatis for real time public transportation monitoring system.
+    \item Developed several mobile application prototypes using Apache Cordova (Angular.js / jQuery).
+  \end{itemize}
+}
+
+
+\section{Languages}
+\cvitemwithcomment{Russian}{native}{}
+\cvitemwithcomment{English}{fluent}{}
+\cvitemwithcomment{German}{beginner (A2)}{}
+
+\section{Education}
+\cvitem{2012--2016}{
+  \textbf{Voronezh State University}; \newline
+  Studied computer science @ Faculty of Computer Science; \newline
+  Programming and Information Technologies Department;
+}
+
+\section{Hobbies \& interests}
+\cvitem{}{IoT devices development (mostly STM32/ESP32 based). I have a bit of experience working with DSP/FPGA (mostly Xilinx-based FPGA) \& designing basic circuits.}
+\cvitem{}{}
+
+\clearpage
+\end{document}
+
